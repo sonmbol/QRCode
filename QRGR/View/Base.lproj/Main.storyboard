@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PF5-aI-wfp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Tln-m8-nev">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jw2-Qq-Lqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="PF5-aI-wfp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dIA-Lr-XbP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ODg-rT-Gns"/>
+                        <segue destination="F1r-el-Mmc" kind="show" id="a69-gn-Vbf"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-801" y="75"/>
+        </scene>
+        <!--QR Code-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QRCodeReadViewController" customModule="QRGR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code" id="wjB-dN-ONQ">
+                        <barButtonItem key="rightBarButtonItem" image="qrcode" catalog="system" id="FQC-bZ-qzD">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnGenerateCode:" destination="BYZ-38-t0r" id="fGh-Tq-KSy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="65"/>
+        </scene>
+        <!--QR Code Generator-->
+        <scene sceneID="7rY-xP-zEi">
+            <objects>
+                <viewController storyboardIdentifier="kQRCodeGeneratorViewController" id="F1r-el-Mmc" customClass="QRCodeGeneratorViewController" customModule="QRGR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YGT-5R-m18">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-WJ-nf8">
+                                <rect key="frame" x="20" y="304.5" width="374" height="199"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DAY-WJ-nf8" secondAttribute="height" multiplier="15:8" id="z2U-EP-hFx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fxM-V9-aKN">
+                                <rect key="frame" x="50" y="125.5" width="314" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-IF-3uX">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dF7-TB-PoD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgo-Pj-GyE">
+                                        <rect key="frame" x="0.0" y="50" width="314" height="30"/>
+                                        <state key="normal" title="Generat"/>
+                                        <connections>
+                                            <action selector="btnGenerateCode:" destination="F1r-el-Mmc" eventType="touchUpInside" id="81j-GO-JSc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVA-JK-AEi">
+                                        <rect key="frame" x="0.0" y="90" width="314" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="btnSaveImage:" destination="F1r-el-Mmc" eventType="touchUpInside" id="Mcc-LD-zbK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sUK-Nn-gSt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sUK-Nn-gSt" firstAttribute="trailing" secondItem="DAY-WJ-nf8" secondAttribute="trailing" constant="20" id="0HM-I5-vbg"/>
+                            <constraint firstItem="sUK-Nn-gSt" firstAttribute="trailing" secondItem="fxM-V9-aKN" secondAttribute="trailing" constant="50" id="9kf-oh-Oib"/>
+                            <constraint firstItem="DAY-WJ-nf8" firstAttribute="top" secondItem="fxM-V9-aKN" secondAttribute="bottom" constant="59" id="JBm-I1-ypt"/>
+                            <constraint firstItem="DAY-WJ-nf8" firstAttribute="leading" secondItem="sUK-Nn-gSt" secondAttribute="leading" constant="20" id="RRc-yO-jvQ"/>
+                            <constraint firstItem="fxM-V9-aKN" firstAttribute="leading" secondItem="sUK-Nn-gSt" secondAttribute="leading" constant="50" id="fsI-88-K6L"/>
+                            <constraint firstItem="DAY-WJ-nf8" firstAttribute="centerY" secondItem="sUK-Nn-gSt" secondAttribute="centerY" id="pev-Wn-z0D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code Generator" id="LJy-L6-Rwt">
+                        <barButtonItem key="rightBarButtonItem" image="qrcode" catalog="system" id="3Ij-ap-B9f">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnSave" destination="sVA-JK-AEi" id="EN4-sx-bkM"/>
+                        <outlet property="imgQR" destination="DAY-WJ-nf8" id="jbd-YN-RZw"/>
+                        <outlet property="txtURL" destination="r1f-IF-3uX" id="aKT-Gz-I8h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYj-JH-poq" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
